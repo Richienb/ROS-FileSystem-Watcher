@@ -42,6 +42,7 @@ Partial Class Form1
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MaterialRaisedButton5 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.FileSaveComp = New System.Windows.Forms.SaveFileDialog()
+        Me.MaterialRaisedButton6 = New MaterialSkin.Controls.MaterialRaisedButton()
         CType(Me.Watch_Create, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Watch_Change, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Watch_Delete, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -260,7 +261,7 @@ Partial Class Form1
         Me.MaterialLabel1.Location = New System.Drawing.Point(-4, 0)
         Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel1.Name = "MaterialLabel1"
-        Me.MaterialLabel1.Size = New System.Drawing.Size(474, 36)
+        Me.MaterialLabel1.Size = New System.Drawing.Size(424, 36)
         Me.MaterialLabel1.TabIndex = 10
         Me.MaterialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -268,6 +269,7 @@ Partial Class Form1
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.Controls.Add(Me.MaterialRaisedButton6)
         Me.Panel1.Controls.Add(Me.MaterialLabel1)
         Me.Panel1.Location = New System.Drawing.Point(12, 413)
         Me.Panel1.Name = "Panel1"
@@ -296,6 +298,22 @@ Partial Class Form1
         Me.FileSaveComp.Filter = "Plain Text Files|*.txt|All Files|*.*"
         Me.FileSaveComp.RestoreDirectory = True
         Me.FileSaveComp.Title = "Choose A File Save Location"
+        '
+        'MaterialRaisedButton6
+        '
+        Me.MaterialRaisedButton6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MaterialRaisedButton6.AutoSize = True
+        Me.MaterialRaisedButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.MaterialRaisedButton6.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.MaterialRaisedButton6.Depth = 0
+        Me.MaterialRaisedButton6.Icon = Global.ROS_FileSystem_Watcher.My.Resources.Resources.clear
+        Me.MaterialRaisedButton6.Location = New System.Drawing.Point(426, 0)
+        Me.MaterialRaisedButton6.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialRaisedButton6.Name = "MaterialRaisedButton6"
+        Me.MaterialRaisedButton6.Primary = True
+        Me.MaterialRaisedButton6.Size = New System.Drawing.Size(44, 36)
+        Me.MaterialRaisedButton6.TabIndex = 12
+        Me.MaterialRaisedButton6.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -326,6 +344,7 @@ Partial Class Form1
         CType(Me.Watch_Delete, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Watch_Rename, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -350,4 +369,5 @@ Partial Class Form1
     Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialRaisedButton5 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents FileSaveComp As SaveFileDialog
+    Friend WithEvents MaterialRaisedButton6 As MaterialSkin.Controls.MaterialRaisedButton
 End Class

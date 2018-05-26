@@ -16,7 +16,7 @@ Public Class Form1
     Private Sub MaterialRaisedButton1_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton1.Click
         If monitoron = False Then
             If Not My.Computer.FileSystem.DirectoryExists(MaterialSingleLineTextField1.Text) Then
-                MsgBox("The Directory You Specified Does Not Exist!", MsgBoxStyle.Exclamation)
+                MsgBox("The directory you specified does not exist!", MsgBoxStyle.Exclamation, "Warning")
                 If MaterialRaisedButton2.Enabled = True Then
                     If showingbrowse = False Then
                         MaterialRaisedButton2.PerformClick()
@@ -140,7 +140,7 @@ Public Class Form1
         If Not FolderBrowserComp.SelectedPath = Nothing Then
             If monitoron = True Then
                 If Not My.Computer.FileSystem.DirectoryExists(MaterialSingleLineTextField1.Text) Then
-                    MsgBox("The Directory You Specified Does Not Exist!", MsgBoxStyle.Exclamation)
+                    MsgBox("The Directory You Specified Does Not Exist!", MsgBoxStyle.Exclamation, "Warning")
                     Exit Sub
                 End If
                 MaterialSingleLineTextField1.Text = FolderBrowserComp.SelectedPath.ToString
@@ -199,6 +199,14 @@ Public Class Form1
                 sb.AppendLine(o)
             Next
             System.IO.File.WriteAllText(FileSaveComp.FileName, sb.ToString())
+        End If
+    End Sub
+
+    Private Sub MaterialRaisedButton6_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton6.Click
+        If ListBox1.Items.Count = 0 Then
+            MsgBox("There are no items to clear!", MsgBoxStyle.Information, "Information")
+        ElseIf MsgBox("Are you sure you want to clear the log?", MsgBoxStyle.YesNo, "Confirmation") = DialogResult.OK Then
+            ListBox1.Items.Clear()
         End If
     End Sub
 End Class
