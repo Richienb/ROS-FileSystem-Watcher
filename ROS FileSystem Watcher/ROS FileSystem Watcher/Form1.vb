@@ -27,6 +27,7 @@ Public Class Form1
                 End If
                 Exit Sub
             End If
+            MaterialSingleLineTextField1.Enabled = False
             Watch_Create.Path = MaterialSingleLineTextField1.Text
             Watch_Change.Path = MaterialSingleLineTextField1.Text
             Watch_Delete.Path = MaterialSingleLineTextField1.Text
@@ -42,6 +43,7 @@ Public Class Form1
             Watch_Change.EnableRaisingEvents = False
             Watch_Delete.EnableRaisingEvents = False
             Watch_Rename.EnableRaisingEvents = False
+            MaterialSingleLineTextField1.Enabled = True
             MaterialRaisedButton1.Icon = My.Resources.play
             monitoron = False
         End If
@@ -136,6 +138,17 @@ Public Class Form1
     Private Sub MaterialRaisedButton4_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton4.Click
         FolderBrowserComp.ShowDialog()
         If Not FolderBrowserComp.SelectedPath = Nothing Then
+            If monitoron = True Then
+                If Not My.Computer.FileSystem.DirectoryExists(MaterialSingleLineTextField1.Text) Then
+                    MsgBox("The Directory You Specified Does Not Exist!", MsgBoxStyle.Exclamation)
+                    Exit Sub
+                End If
+                MaterialSingleLineTextField1.Text = FolderBrowserComp.SelectedPath.ToString
+                Watch_Create.Path = FolderBrowserComp.SelectedPath.ToString
+                Watch_Change.Path = FolderBrowserComp.SelectedPath.ToString
+                Watch_Rename.Path = FolderBrowserComp.SelectedPath.ToString
+                Watch_Delete.Path = FolderBrowserComp.SelectedPath.ToString
+            End If
             MaterialSingleLineTextField1.Text = FolderBrowserComp.SelectedPath.ToString
         End If
     End Sub
@@ -176,5 +189,16 @@ Public Class Form1
 
     Private Sub MaterialCheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles MaterialCheckBox4.CheckedChanged
         Watch_Rename.EnableRaisingEvents = MaterialCheckBox4.Checked
+    End Sub
+
+    Private Sub MaterialRaisedButton5_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton5.Click
+        FileSaveComp.FileName = "Log - " & DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        If FileSaveComp.ShowDialog() = DialogResult.OK Then
+            Dim sb As New System.Text.StringBuilder()
+            For Each o As Object In ListBox1.Items
+                sb.AppendLine(o)
+            Next
+            System.IO.File.WriteAllText(FileSaveComp.FileName, sb.ToString())
+        End If
     End Sub
 End Class

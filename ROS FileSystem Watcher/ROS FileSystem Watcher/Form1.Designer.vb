@@ -292,7 +292,10 @@ Partial Class Form1
         '
         'FileSaveComp
         '
+        Me.FileSaveComp.DefaultExt = "txt"
         Me.FileSaveComp.Filter = "Plain Text Files|*.txt|All Files|*.*"
+        Me.FileSaveComp.RestoreDirectory = True
+        Me.FileSaveComp.Title = "Choose A File Save Location"
         '
         'Form1
         '
