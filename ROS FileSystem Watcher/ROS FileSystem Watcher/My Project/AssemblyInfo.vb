@@ -10,8 +10,8 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("ROS FileSystem Watcher")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("ROS FileSystem Watcher is a vb.net application which watches over the filesystem on your computer and alerts you when files change.")>
+<Assembly: AssemblyCompany("ROS")>
 <Assembly: AssemblyProduct("ROS FileSystem Watcher")>
 <Assembly: AssemblyCopyright("Copyright © Richie Bendall 2018")>
 <Assembly: AssemblyTrademark("")>

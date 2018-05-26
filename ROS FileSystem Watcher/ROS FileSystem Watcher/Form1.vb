@@ -5,12 +5,17 @@ Public Class Form1
     Dim showingsettings As Boolean = False
     Dim showingbrowse As Boolean = False
     Dim monitoron As Boolean = False
+    Dim formloaded = False
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.Indigo800, Primary.Indigo900, Primary.Indigo500, Accent.Red200, TextShade.WHITE)
-        FileSaveComp.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+        formloaded = True
+        Try
+            FileSaveComp.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+        Catch
+        End Try
     End Sub
 
     Private Sub MaterialRaisedButton1_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton1.Click
@@ -94,10 +99,6 @@ Public Class Form1
             Application.DoEvents()
         Loop
         sw.Stop()
-    End Sub
-
-    Private Sub MaterialSingleLineTextField1_Click(sender As Object, e As EventArgs) Handles MaterialSingleLineTextField1.Click
-
     End Sub
 
     Private Sub MaterialRaisedButton2_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton2.Click
@@ -193,7 +194,9 @@ Public Class Form1
 
     Private Sub MaterialRaisedButton5_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton5.Click
         FileSaveComp.FileName = "Log - " & DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-        If FileSaveComp.ShowDialog() = DialogResult.OK Then
+        If ListBox1.Items.Count = 0 Then
+            MsgBox("There is nothing to save!", MsgBoxStyle.Information, "Information")
+        ElseIf FileSaveComp.ShowDialog() = DialogResult.OK Then
             Dim sb As New System.Text.StringBuilder()
             For Each o As Object In ListBox1.Items
                 sb.AppendLine(o)
@@ -205,7 +208,7 @@ Public Class Form1
     Private Sub MaterialRaisedButton6_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton6.Click
         If ListBox1.Items.Count = 0 Then
             MsgBox("There are no items to clear!", MsgBoxStyle.Information, "Information")
-        ElseIf MsgBox("Are you sure you want to clear the log?", MsgBoxStyle.YesNo, "Confirmation") = DialogResult.OK Then
+        ElseIf MsgBox("Are you sure you want to clear the log?", MsgBoxStyle.YesNo, "Confirmation") = DialogResult.yes Then
             ListBox1.Items.Clear()
         End If
     End Sub

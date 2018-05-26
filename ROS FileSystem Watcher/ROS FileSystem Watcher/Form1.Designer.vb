@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.ListBox1 = New System.Windows.Forms.ListBox()
@@ -40,9 +40,9 @@ Partial Class Form1
         Me.MaterialRaisedButton4 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.MaterialRaisedButton6 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.MaterialRaisedButton5 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.FileSaveComp = New System.Windows.Forms.SaveFileDialog()
-        Me.MaterialRaisedButton6 = New MaterialSkin.Controls.MaterialRaisedButton()
         CType(Me.Watch_Create, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Watch_Change, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Watch_Delete, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -276,6 +276,22 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(520, 36)
         Me.Panel1.TabIndex = 11
         '
+        'MaterialRaisedButton6
+        '
+        Me.MaterialRaisedButton6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MaterialRaisedButton6.AutoSize = True
+        Me.MaterialRaisedButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.MaterialRaisedButton6.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.MaterialRaisedButton6.Depth = 0
+        Me.MaterialRaisedButton6.Icon = Global.ROS_FileSystem_Watcher.My.Resources.Resources.clear
+        Me.MaterialRaisedButton6.Location = New System.Drawing.Point(426, 0)
+        Me.MaterialRaisedButton6.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialRaisedButton6.Name = "MaterialRaisedButton6"
+        Me.MaterialRaisedButton6.Primary = True
+        Me.MaterialRaisedButton6.Size = New System.Drawing.Size(44, 36)
+        Me.MaterialRaisedButton6.TabIndex = 12
+        Me.MaterialRaisedButton6.UseVisualStyleBackColor = True
+        '
         'MaterialRaisedButton5
         '
         Me.MaterialRaisedButton5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -298,22 +314,6 @@ Partial Class Form1
         Me.FileSaveComp.Filter = "Plain Text Files|*.txt|All Files|*.*"
         Me.FileSaveComp.RestoreDirectory = True
         Me.FileSaveComp.Title = "Choose A File Save Location"
-        '
-        'MaterialRaisedButton6
-        '
-        Me.MaterialRaisedButton6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MaterialRaisedButton6.AutoSize = True
-        Me.MaterialRaisedButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialRaisedButton6.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.MaterialRaisedButton6.Depth = 0
-        Me.MaterialRaisedButton6.Icon = Global.ROS_FileSystem_Watcher.My.Resources.Resources.clear
-        Me.MaterialRaisedButton6.Location = New System.Drawing.Point(426, 0)
-        Me.MaterialRaisedButton6.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialRaisedButton6.Name = "MaterialRaisedButton6"
-        Me.MaterialRaisedButton6.Primary = True
-        Me.MaterialRaisedButton6.Size = New System.Drawing.Size(44, 36)
-        Me.MaterialRaisedButton6.TabIndex = 12
-        Me.MaterialRaisedButton6.UseVisualStyleBackColor = True
         '
         'Form1
         '
