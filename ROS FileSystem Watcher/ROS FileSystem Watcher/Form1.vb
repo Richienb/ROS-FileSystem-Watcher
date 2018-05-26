@@ -10,40 +10,50 @@ Public Class Form1
         Dim SkinManager As MaterialSkinManager = MaterialSkinManager.Instance
         SkinManager.Theme = MaterialSkinManager.Themes.LIGHT
         SkinManager.ColorScheme = New ColorScheme(Primary.Indigo800, Primary.Indigo900, Primary.Indigo500, Accent.Red200, TextShade.WHITE)
-        MaterialSingleLineTextField1.Text = My.Computer.FileSystem.SpecialDirectories.Desktop
+        FileSaveComp.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
     End Sub
 
     Private Sub MaterialRaisedButton1_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton1.Click
         If monitoron = False Then
             If Not My.Computer.FileSystem.DirectoryExists(MaterialSingleLineTextField1.Text) Then
-                MsgBox("Directory " & MaterialSingleLineTextField1.Text & " Does Not Exist!")
+                MsgBox("The Directory You Specified Does Not Exist!", MsgBoxStyle.Exclamation)
+                If MaterialRaisedButton2.Enabled = True Then
+                    If showingbrowse = False Then
+                        MaterialRaisedButton2.PerformClick()
+                    Else
+                        MaterialSingleLineTextField1.Focus()
+                    End If
+
+                End If
                 Exit Sub
             End If
             Watch_Create.Path = MaterialSingleLineTextField1.Text
             Watch_Change.Path = MaterialSingleLineTextField1.Text
             Watch_Delete.Path = MaterialSingleLineTextField1.Text
             Watch_Rename.Path = MaterialSingleLineTextField1.Text
-            If MaterialCheckBox1.Checked = True Then
-                Watch_Create.EnableRaisingEvents = True
-            End If
-            If MaterialCheckBox2.Checked = True Then
-                Watch_Change.EnableRaisingEvents = True
-            End If
-            If MaterialCheckBox3.Checked = True Then
-                Watch_Delete.EnableRaisingEvents = True
-            End If
-            If MaterialCheckBox4.Checked = True Then
-                Watch_Rename.EnableRaisingEvents = True
-            End If
+            Watch_Create.EnableRaisingEvents = MaterialCheckBox1.Checked
+            Watch_Change.EnableRaisingEvents = MaterialCheckBox2.Checked
+            Watch_Delete.EnableRaisingEvents = MaterialCheckBox3.Checked
+            Watch_Rename.EnableRaisingEvents = MaterialCheckBox4.Checked
+            MaterialRaisedButton1.Icon = My.Resources.pause
             monitoron = True
         Else
+            Watch_Create.EnableRaisingEvents = False
+            Watch_Change.EnableRaisingEvents = False
+            Watch_Delete.EnableRaisingEvents = False
+            Watch_Rename.EnableRaisingEvents = False
+            MaterialRaisedButton1.Icon = My.Resources.play
             monitoron = False
         End If
     End Sub
 
     Private Sub MaterialRaisedButton3_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton3.Click
         If showingbrowse = True Then
-            MaterialRaisedButton2.PerformClick()
+            If MaterialRaisedButton2.Enabled = True Then
+                MaterialRaisedButton3.Enabled = False
+                MaterialRaisedButton2.PerformClick()
+                MaterialRaisedButton3.Enabled = True
+            End If
         End If
         If showingsettings = False Then
             MaterialRaisedButton3.Enabled = False
@@ -90,7 +100,11 @@ Public Class Form1
 
     Private Sub MaterialRaisedButton2_Click(sender As Object, e As EventArgs) Handles MaterialRaisedButton2.Click
         If showingsettings = True Then
-            MaterialRaisedButton3.PerformClick()
+            If MaterialRaisedButton3.Enabled = True Then
+                MaterialRaisedButton2.Enabled = False
+                MaterialRaisedButton3.PerformClick()
+                MaterialRaisedButton2.Enabled = False
+            End If
         End If
         If showingbrowse = False Then
             MaterialRaisedButton2.Enabled = False
@@ -128,17 +142,39 @@ Public Class Form1
 
     Private Sub Watch_Create_Created(sender As Object, e As IO.FileSystemEventArgs) Handles Watch_Create.Created
         ListBox1.Items.Add("File Created | " & e.FullPath)
+        MaterialLabel1.Text = "File Created | " & e.FullPath
     End Sub
 
     Private Sub Watch_Change_Changed(sender As Object, e As IO.FileSystemEventArgs) Handles Watch_Change.Changed
         ListBox1.Items.Add("File Changed | " & e.FullPath)
+        MaterialLabel1.Text = "File Changed | " & e.FullPath
     End Sub
 
     Private Sub Watch_Delete_Deleted(sender As Object, e As IO.FileSystemEventArgs) Handles Watch_Delete.Deleted
         ListBox1.Items.Add("File Deleted | " & e.FullPath)
+        MaterialLabel1.Text = "File Deleted | " & e.FullPath
     End Sub
 
     Private Sub Watch_Rename_Renamed(sender As Object, e As IO.RenamedEventArgs) Handles Watch_Rename.Renamed
         ListBox1.Items.Add("File Renamed | " & e.FullPath)
+        MaterialLabel1.Text = "File Renamed | " & e.FullPath
+    End Sub
+
+    Private Sub MaterialCheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles MaterialCheckBox1.CheckedChanged
+        If monitoron = True Then
+            Watch_Create.EnableRaisingEvents = MaterialCheckBox1.Checked
+        End If
+    End Sub
+
+    Private Sub MaterialCheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles MaterialCheckBox2.CheckedChanged
+        Watch_Change.EnableRaisingEvents = MaterialCheckBox2.Checked
+    End Sub
+
+    Private Sub MaterialCheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles MaterialCheckBox3.CheckedChanged
+        Watch_Delete.EnableRaisingEvents = MaterialCheckBox3.Checked
+    End Sub
+
+    Private Sub MaterialCheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles MaterialCheckBox4.CheckedChanged
+        Watch_Rename.EnableRaisingEvents = MaterialCheckBox4.Checked
     End Sub
 End Class

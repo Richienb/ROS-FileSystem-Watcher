@@ -38,10 +38,15 @@ Partial Class Form1
         Me.MaterialRaisedButton3 = New MaterialSkin.Controls.MaterialRaisedButton()
         Me.MaterialSingleLineTextField1 = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.MaterialRaisedButton4 = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.MaterialRaisedButton5 = New MaterialSkin.Controls.MaterialRaisedButton()
+        Me.FileSaveComp = New System.Windows.Forms.SaveFileDialog()
         CType(Me.Watch_Create, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Watch_Change, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Watch_Delete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Watch_Rename, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListBox1
@@ -55,7 +60,7 @@ Partial Class Form1
         Me.ListBox1.ItemHeight = 22
         Me.ListBox1.Location = New System.Drawing.Point(12, 66)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(549, 334)
+        Me.ListBox1.Size = New System.Drawing.Size(520, 334)
         Me.ListBox1.TabIndex = 0
         '
         'MaterialCheckBox1
@@ -63,6 +68,7 @@ Partial Class Form1
         Me.MaterialCheckBox1.AutoSize = True
         Me.MaterialCheckBox1.Checked = True
         Me.MaterialCheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.MaterialCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MaterialCheckBox1.Depth = 0
         Me.MaterialCheckBox1.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.MaterialCheckBox1.Location = New System.Drawing.Point(160, 3)
@@ -92,6 +98,7 @@ Partial Class Form1
         Me.MaterialCheckBox3.AutoSize = True
         Me.MaterialCheckBox3.Checked = True
         Me.MaterialCheckBox3.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.MaterialCheckBox3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MaterialCheckBox3.Depth = 0
         Me.MaterialCheckBox3.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.MaterialCheckBox3.Location = New System.Drawing.Point(325, 3)
@@ -111,6 +118,7 @@ Partial Class Form1
         Me.MaterialCheckBox2.AutoSize = True
         Me.MaterialCheckBox2.Checked = True
         Me.MaterialCheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.MaterialCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MaterialCheckBox2.Depth = 0
         Me.MaterialCheckBox2.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.MaterialCheckBox2.Location = New System.Drawing.Point(160, 33)
@@ -128,6 +136,7 @@ Partial Class Form1
         'MaterialCheckBox4
         '
         Me.MaterialCheckBox4.AutoSize = True
+        Me.MaterialCheckBox4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MaterialCheckBox4.Depth = 0
         Me.MaterialCheckBox4.Font = New System.Drawing.Font("Roboto", 10.0!)
         Me.MaterialCheckBox4.Location = New System.Drawing.Point(325, 33)
@@ -146,6 +155,7 @@ Partial Class Form1
         '
         Me.MaterialRaisedButton1.AutoSize = True
         Me.MaterialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.MaterialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MaterialRaisedButton1.Depth = 0
         Me.MaterialRaisedButton1.Icon = Global.ROS_FileSystem_Watcher.My.Resources.Resources.play
         Me.MaterialRaisedButton1.Location = New System.Drawing.Point(12, 17)
@@ -178,6 +188,7 @@ Partial Class Form1
         '
         Me.MaterialRaisedButton2.AutoSize = True
         Me.MaterialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.MaterialRaisedButton2.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MaterialRaisedButton2.Depth = 0
         Me.MaterialRaisedButton2.Icon = Global.ROS_FileSystem_Watcher.My.Resources.Resources.browse
         Me.MaterialRaisedButton2.Location = New System.Drawing.Point(63, 17)
@@ -192,6 +203,7 @@ Partial Class Form1
         '
         Me.MaterialRaisedButton3.AutoSize = True
         Me.MaterialRaisedButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.MaterialRaisedButton3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MaterialRaisedButton3.Depth = 0
         Me.MaterialRaisedButton3.Icon = Global.ROS_FileSystem_Watcher.My.Resources.Resources.settings
         Me.MaterialRaisedButton3.Location = New System.Drawing.Point(113, 17)
@@ -204,6 +216,7 @@ Partial Class Form1
         '
         'MaterialSingleLineTextField1
         '
+        Me.MaterialSingleLineTextField1.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.MaterialSingleLineTextField1.Depth = 0
         Me.MaterialSingleLineTextField1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.MaterialSingleLineTextField1.Hint = "Type Directory Here"
@@ -225,9 +238,10 @@ Partial Class Form1
         Me.MaterialRaisedButton4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MaterialRaisedButton4.AutoSize = True
         Me.MaterialRaisedButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.MaterialRaisedButton4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MaterialRaisedButton4.Depth = 0
         Me.MaterialRaisedButton4.Icon = Global.ROS_FileSystem_Watcher.My.Resources.Resources.browse
-        Me.MaterialRaisedButton4.Location = New System.Drawing.Point(517, 17)
+        Me.MaterialRaisedButton4.Location = New System.Drawing.Point(488, 17)
         Me.MaterialRaisedButton4.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialRaisedButton4.Name = "MaterialRaisedButton4"
         Me.MaterialRaisedButton4.Primary = True
@@ -236,12 +250,57 @@ Partial Class Form1
         Me.MaterialRaisedButton4.UseVisualStyleBackColor = True
         Me.MaterialRaisedButton4.Visible = False
         '
+        'MaterialLabel1
+        '
+        Me.MaterialLabel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MaterialLabel1.Depth = 0
+        Me.MaterialLabel1.Font = New System.Drawing.Font("Roboto", 11.0!)
+        Me.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.MaterialLabel1.Location = New System.Drawing.Point(-4, 0)
+        Me.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel1.Name = "MaterialLabel1"
+        Me.MaterialLabel1.Size = New System.Drawing.Size(474, 36)
+        Me.MaterialLabel1.TabIndex = 10
+        Me.MaterialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Panel1
+        '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.Controls.Add(Me.MaterialLabel1)
+        Me.Panel1.Location = New System.Drawing.Point(12, 413)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(520, 36)
+        Me.Panel1.TabIndex = 11
+        '
+        'MaterialRaisedButton5
+        '
+        Me.MaterialRaisedButton5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MaterialRaisedButton5.AutoSize = True
+        Me.MaterialRaisedButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.MaterialRaisedButton5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.MaterialRaisedButton5.Depth = 0
+        Me.MaterialRaisedButton5.Icon = Global.ROS_FileSystem_Watcher.My.Resources.Resources.save
+        Me.MaterialRaisedButton5.Location = New System.Drawing.Point(488, 413)
+        Me.MaterialRaisedButton5.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialRaisedButton5.Name = "MaterialRaisedButton5"
+        Me.MaterialRaisedButton5.Primary = True
+        Me.MaterialRaisedButton5.Size = New System.Drawing.Size(44, 36)
+        Me.MaterialRaisedButton5.TabIndex = 9
+        Me.MaterialRaisedButton5.UseVisualStyleBackColor = True
+        '
+        'FileSaveComp
+        '
+        Me.FileSaveComp.Filter = "Plain Text Files|*.txt|All Files|*.*"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(573, 412)
+        Me.ClientSize = New System.Drawing.Size(544, 461)
+        Me.Controls.Add(Me.MaterialRaisedButton5)
         Me.Controls.Add(Me.MaterialRaisedButton4)
         Me.Controls.Add(Me.MaterialSingleLineTextField1)
         Me.Controls.Add(Me.MaterialRaisedButton3)
@@ -252,6 +311,7 @@ Partial Class Form1
         Me.Controls.Add(Me.MaterialCheckBox3)
         Me.Controls.Add(Me.MaterialCheckBox1)
         Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Roboto", 12.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -262,6 +322,7 @@ Partial Class Form1
         CType(Me.Watch_Change, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Watch_Delete, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Watch_Rename, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -282,4 +343,8 @@ Partial Class Form1
     Friend WithEvents MaterialRaisedButton3 As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents MaterialSingleLineTextField1 As MaterialSkin.Controls.MaterialSingleLineTextField
     Friend WithEvents MaterialRaisedButton4 As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
+    Friend WithEvents MaterialRaisedButton5 As MaterialSkin.Controls.MaterialRaisedButton
+    Friend WithEvents FileSaveComp As SaveFileDialog
 End Class
